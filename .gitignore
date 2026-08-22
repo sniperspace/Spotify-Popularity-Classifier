@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+*.zip
+*.csv
+!assets/
+!assets/artist_lookup.csv
+!assets/genre_lookup.csv
