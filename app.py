@@ -162,24 +162,28 @@ if predict_button:
         )
         st.stop()
 
-    # Get Spotify token
-    access_token = (
-        st.secrets.get(
-            "SPOTIFY_ACCESS_TOKEN",
-            os.getenv(
-                "SPOTIFY_ACCESS_TOKEN"
-            )
-        )
-    )
+        # Spotify Client Credentials
 
-    if not access_token:
+    try:
+
+        client_id = st.secrets[
+            "SPOTIFY_CLIENT_ID"
+        ]
+
+        client_secret = st.secrets[
+            "SPOTIFY_CLIENT_SECRET"
+        ]
+
+    except Exception:
 
         st.error(
-            "Spotify API access token is not configured."
+            "Spotify Client ID / Client Secret "
+            "are not configured."
         )
 
         st.info(
-            "Add SPOTIFY_ACCESS_TOKEN to "
+            "Add SPOTIFY_CLIENT_ID and "
+            "SPOTIFY_CLIENT_SECRET to "
             "Streamlit Secrets."
         )
 
@@ -191,7 +195,8 @@ if predict_button:
 
         track = get_track(
             spotify_url,
-            access_token
+            client_id,
+            client_secret
         )
 
     if track["status"] != "success":
