@@ -1,0 +1,6 @@
+{
+  "main_threshold": 0.46000000000000024,
+  "cold_start_threshold": 0.2800000000000001,
+  "main_feature_count": 96,
+  "cold_start_feature_count": 6
+}
